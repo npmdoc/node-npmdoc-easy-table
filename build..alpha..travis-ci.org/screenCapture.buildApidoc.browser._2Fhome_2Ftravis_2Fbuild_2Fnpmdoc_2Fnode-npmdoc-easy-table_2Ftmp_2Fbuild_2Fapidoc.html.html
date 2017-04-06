@@ -1,0 +1,458 @@
+<html><head></head><body><div class="apidocDiv">
+<style>
+/*csslint
+*/
+.apidocDiv {
+    background: #fff;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.apidocDiv a[href] {
+    color: #33f;
+    font-weight: bold;
+    text-decoration: none;
+}
+.apidocDiv a[href]:hover {
+    text-decoration: underline;
+}
+.apidocCodeCommentSpan {
+    background: #bbf;
+    color: #000;
+    display: block;
+}
+.apidocCodeKeywordSpan {
+    color: #d00;
+    font-weight: bold;
+}
+.apidocCodePre {
+    background: #eef;
+    border: 1px solid;
+    color: #777;
+    padding: 5px;
+    white-space: pre-wrap;
+}
+.apidocFooterDiv {
+    margin-top: 20px;
+    text-align: center;
+}
+.apidocModuleLi {
+    margin-top: 10px;
+}
+.apidocSectionDiv {
+    border-top: 1px solid;
+    margin-top: 20px;
+}
+.apidocSignatureSpan {
+    color: #777;
+    font-weight: bold;
+}
+</style>
+<h1>api documentation for
+    <a href="https://github.com/eldargab/easy-table#readme">easy-table (v1.1.0)</a>
+</h1>
+<h4>Nice text table for the CLI</h4>
+<div class="apidocSectionDiv"><a href="#apidoc.tableOfContents" id="apidoc.tableOfContents"><h1>table of contents</h1></a><ol>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.easy-table">module easy-table</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.easy-table.leftPadder">
+            function <span class="apidocSignatureSpan">easy-table.</span>leftPadder
+            <span class="apidocSignatureSpan">(ch)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.easy-table.log">
+            function <span class="apidocSignatureSpan">easy-table.</span>log
+            <span class="apidocSignatureSpan">(obj, format, cb)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.easy-table.number">
+            function <span class="apidocSignatureSpan">easy-table.</span>number
+            <span class="apidocSignatureSpan">(digits)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.easy-table.padLeft">
+            function <span class="apidocSignatureSpan">easy-table.</span>padLeft
+            <span class="apidocSignatureSpan">(val, width)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.easy-table.print">
+            function <span class="apidocSignatureSpan">easy-table.</span>print
+            <span class="apidocSignatureSpan">(obj, format, cb)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.easy-table.rightPadder">
+            function <span class="apidocSignatureSpan">easy-table.</span>rightPadder
+            <span class="apidocSignatureSpan">(ch)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.easy-table.string">
+            function <span class="apidocSignatureSpan">easy-table.</span>string
+            <span class="apidocSignatureSpan">(val)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">easy-table.</span>aggr</span>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.easy-table.aggr">module easy-table.aggr</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.easy-table.aggr.avg">
+            function <span class="apidocSignatureSpan">easy-table.aggr.</span>avg
+            <span class="apidocSignatureSpan">(acc, val, idx, len)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.easy-table.aggr.printer">
+            function <span class="apidocSignatureSpan">easy-table.aggr.</span>printer
+            <span class="apidocSignatureSpan">(prefix, printer)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.easy-table.aggr.sum">
+            function <span class="apidocSignatureSpan">easy-table.aggr.</span>sum
+            <span class="apidocSignatureSpan">(acc, val)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+</ol></div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.easy-table" id="apidoc.module.easy-table">module easy-table</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.easy-table.leftPadder" id="apidoc.element.easy-table.leftPadder">
+        function <span class="apidocSignatureSpan">easy-table.</span>leftPadder
+        <span class="apidocSignatureSpan">(ch)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function leftPadder(ch) {
+  return function(val, width) {
+    var str = string(val)
+    var len = length(str)
+    var pad = width &gt; len ? Array(width - len + 1).join(ch) : ''
+    return pad + str
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.easy-table.log" id="apidoc.element.easy-table.log">
+        function <span class="apidocSignatureSpan">easy-table.</span>log
+        <span class="apidocSignatureSpan">(obj, format, cb)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">log = function (obj, format, cb) {
+  console.log(Table.print(obj, format, cb))
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+data.forEach(function(product) {
+  t.cell('Product Id', product.id)
+  t.cell('Description', product.desc)
+  t.cell('Price, USD', product.price, Table.number(2))
+  t.newRow()
+})
+
+console.<span class="apidocCodeKeywordSpan">log</span>(t.toString())
+```
+
+The script above will render:
+
+```
+Product Id  Description            Price, USD
+----------  ---------------------  ----------
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.easy-table.number" id="apidoc.element.easy-table.number">
+        function <span class="apidocSignatureSpan">easy-table.</span>number
+        <span class="apidocSignatureSpan">(digits)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">number = function (digits) {
+  return function(val, width) {
+    if (val == null) return ''
+    if (typeof val != 'number')
+      throw new Error(''+val + ' is not a number')
+    var str = digits == null ? val+'' : val.toFixed(digits)
+    return padLeft(str, width)
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+]
+
+var t = new Table
+
+data.forEach(function(product) {
+  t.cell('Product Id', product.id)
+  t.cell('Description', product.desc)
+  t.cell('Price, USD', product.price, Table.<span class="apidocCodeKeywordSpan">number</span>(2))
+  t.newRow()
+})
+
+console.log(t.toString())
+```
+
+The script above will render:
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.easy-table.padLeft" id="apidoc.element.easy-table.padLeft">
+        function <span class="apidocSignatureSpan">easy-table.</span>padLeft
+        <span class="apidocSignatureSpan">(val, width)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">padLeft = function (val, width) {
+  var str = string(val)
+  var len = length(str)
+  var pad = width &gt; len ? Array(width - len + 1).join(ch) : ''
+  return pad + str
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+additional `width` parameter to get actual string to render.
+
+For example, here is how currency printer might be defined
+
+``` javascript
+function currency(val, width) {
+  var str = val.toFixed(2)
+  return width ? Table.<span class="apidocCodeKeywordSpan">padLeft</span>(str, width) : str
+}
+```
+
+### Table.print()
+
+When you already have an array, explicit table instantiation and iteration
+becomes an overhead. For such cases it is convenient to use `Table.print()`.
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.easy-table.print" id="apidoc.element.easy-table.print">
+        function <span class="apidocSignatureSpan">easy-table.</span>print
+        <span class="apidocSignatureSpan">(obj, format, cb)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">print = function (obj, format, cb) {
+  var opts = format || {}
+
+  format = typeof format == 'function'
+    ? format
+    : function(obj, cell) {
+      for(var key in obj) {
+        if (!obj.hasOwnProperty(key)) continue
+        var params = opts[key] || {}
+        cell(params.name || key, obj[key], params.printer)
+      }
+    }
+
+  var t = new Table
+  var cell = t.cell.bind(t)
+
+  if (Array.isArray(obj)) {
+    cb = cb || function(t) { return t.toString() }
+    obj.forEach(function(item) {
+      format(item, cell)
+      t.newRow()
+    })
+  } else {
+    cb = cb || function(t) { return t.printTransposed({separator: ' : '}) }
+    format(obj, cell)
+    t.newRow()
+  }
+
+  return cb(t)
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+```
+Product Id  : 245452                : 232323              : 123123
+Description : Very interesting book : Yet another product : Something awesome
+Price, USD  : 11.45                 : 555.55              : 1000.00
+```
+
+`t.<span class="apidocCodeKeywordSpan">print</span>()` shows just rows you pushed and nothing more
+
+```
+123123  Something awesome      1000.00
+245452  Very interesting book    11.45
+232323  Yet another product     555.55
+```
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.easy-table.rightPadder" id="apidoc.element.easy-table.rightPadder">
+        function <span class="apidocSignatureSpan">easy-table.</span>rightPadder
+        <span class="apidocSignatureSpan">(ch)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function rightPadder(ch) {
+  return function padRight(val, width) {
+    var str = string(val)
+    var len = length(str)
+    var pad = width &gt; len ? Array(width - len + 1).join(ch) : ''
+    return str + pad
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.easy-table.string" id="apidoc.element.easy-table.string">
+        function <span class="apidocSignatureSpan">easy-table.</span>string
+        <span class="apidocSignatureSpan">(val)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function string(val) {
+  return val === undefined ? '' : ''+val
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.easy-table.aggr" id="apidoc.module.easy-table.aggr">module easy-table.aggr</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.easy-table.aggr.avg" id="apidoc.element.easy-table.aggr.avg">
+        function <span class="apidocSignatureSpan">easy-table.aggr.</span>avg
+        <span class="apidocSignatureSpan">(acc, val, idx, len)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">avg = function (acc, val, idx, len) {
+  acc = acc + val
+  return idx + 1 == len ? acc/len : acc
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.easy-table.aggr.printer" id="apidoc.element.easy-table.aggr.printer">
+        function <span class="apidocSignatureSpan">easy-table.aggr.</span>printer
+        <span class="apidocSignatureSpan">(prefix, printer)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">printer = function (prefix, printer) {
+  printer = printer || string
+  return function(val, width) {
+    return padLeft(prefix + printer(val), width)
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+                                      1567.00
+```
+
+Here is a more elaborate example
+
+```javascript
+t.total('Price, USD', {
+  printer: Table.aggr.<span class="apidocCodeKeywordSpan">printer</span>('Avg: ', currency),
+  reduce: Table.aggr.avg,
+  init: 0
+})
+
+// or alternatively
+
+t.total('Price, USD', {
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.easy-table.aggr.sum" id="apidoc.element.easy-table.aggr.sum">
+        function <span class="apidocSignatureSpan">easy-table.aggr.</span>sum
+        <span class="apidocSignatureSpan">(acc, val)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">sum = function (acc, val) {
+  return acc + val
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocFooterDiv">
+    [ this document was created with
+    <a href="https://github.com/kaizhu256/node-utility2" target="_blank">utility2</a>
+    ]
+</div>
+</div>
+</body></html>
