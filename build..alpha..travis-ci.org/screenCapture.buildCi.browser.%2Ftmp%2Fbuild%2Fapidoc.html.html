@@ -1,4 +1,4 @@
-<div class="apidocDiv">
+<html><head></head><body><div class="apidocDiv">
 <style>
 /*csslint
 */
@@ -47,17 +47,10 @@
 }
 </style>
 <h1>api documentation for
-    <a
-
-        href="https://github.com/eldargab/easy-table#readme"
-
-    >easy-table (v1.1.0)</a>
+    <a href="https://github.com/eldargab/easy-table#readme">easy-table (v1.1.0)</a>
 </h1>
 <h4>Nice text table for the CLI</h4>
-<div class="apidocSectionDiv"><a
-    href="#apidoc.tableOfContents"
-    id="apidoc.tableOfContents"
-><h1>table of contents</h1></a><ol>
+<div class="apidocSectionDiv"><a href="#apidoc.tableOfContents" id="apidoc.tableOfContents"><h1>table of contents</h1></a><ol>
 
     <li class="apidocModuleLi"><a href="#apidoc.module.easy-table">module easy-table</a><ol>
 
@@ -411,7 +404,7 @@
   return function(val, width) {
     var str = string(val)
     var len = length(str)
-    var pad = width &#x3e; len ? Array(width - len + 1).join(ch) : &#x27;&#x27;
+    var pad = width &gt; len ? Array(width - len + 1).join(ch) : ''
     return pad + str
   }
 }</pre></li>
@@ -432,9 +425,9 @@
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
 data.forEach(function(product) {
-  t.cell(&#x27;Product Id&#x27;, product.id)
-  t.cell(&#x27;Description&#x27;, product.desc)
-  t.cell(&#x27;Price, USD&#x27;, product.price, Table.number(2))
+  t.cell('Product Id', product.id)
+  t.cell('Description', product.desc)
+  t.cell('Price, USD', product.price, Table.number(2))
   t.newRow()
 })
 
@@ -460,10 +453,10 @@ Product Id  Description            Price, USD
     <ul>
     <li>description and source-code<pre class="apidocCodePre">number = function (digits) {
   return function(val, width) {
-    if (val == null) return &#x27;&#x27;
-    if (typeof val != &#x27;number&#x27;)
-      throw new Error(&#x27;&#x27;+val + &#x27; is not a number&#x27;)
-    var str = digits == null ? val+&#x27;&#x27; : val.toFixed(digits)
+    if (val == null) return ''
+    if (typeof val != 'number')
+      throw new Error(''+val + ' is not a number')
+    var str = digits == null ? val+'' : val.toFixed(digits)
     return padLeft(str, width)
   }
 }</pre></li>
@@ -473,9 +466,9 @@ Product Id  Description            Price, USD
 var t = new Table
 
 data.forEach(function(product) {
-  t.cell(&#x27;Product Id&#x27;, product.id)
-  t.cell(&#x27;Description&#x27;, product.desc)
-  t.cell(&#x27;Price, USD&#x27;, product.price, Table.<span class="apidocCodeKeywordSpan">number</span>(2))
+  t.cell('Product Id', product.id)
+  t.cell('Description', product.desc)
+  t.cell('Price, USD', product.price, Table.<span class="apidocCodeKeywordSpan">number</span>(2))
   t.newRow()
 })
 
@@ -498,7 +491,7 @@ The script above will render:
     <li>description and source-code<pre class="apidocCodePre">padLeft = function (val, width) {
   var str = string(val)
   var len = length(str)
-  var pad = width &#x3e; len ? Array(width - len + 1).join(ch) : &#x27;&#x27;
+  var pad = width &gt; len ? Array(width - len + 1).join(ch) : ''
   return pad + str
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
@@ -532,7 +525,7 @@ becomes an overhead. For such cases it is convenient to use `Table.print()`.
     <li>description and source-code<pre class="apidocCodePre">print = function (obj, format, cb) {
   var opts = format || {}
 
-  format = typeof format == &#x27;function&#x27;
+  format = typeof format == 'function'
     ? format
     : function(obj, cell) {
       for(var key in obj) {
@@ -552,7 +545,7 @@ becomes an overhead. For such cases it is convenient to use `Table.print()`.
       t.newRow()
     })
   } else {
-    cb = cb || function(t) { return t.printTransposed({separator: &#x27; : &#x27;}) }
+    cb = cb || function(t) { return t.printTransposed({separator: ' : '}) }
     format(obj, cell)
     t.newRow()
   }
@@ -590,7 +583,7 @@ Price, USD  : 11.45                 : 555.55              : 1000.00
   return function padRight(val, width) {
     var str = string(val)
     var len = length(str)
-    var pad = width &#x3e; len ? Array(width - len + 1).join(ch) : &#x27;&#x27;
+    var pad = width &gt; len ? Array(width - len + 1).join(ch) : ''
     return str + pad
   }
 }</pre></li>
@@ -607,7 +600,7 @@ Price, USD  : 11.45                 : 555.55              : 1000.00
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">function string(val) {
-  return val === undefined ? &#x27;&#x27; : &#x27;&#x27;+val
+  return val === undefined ? '' : ''+val
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
@@ -675,15 +668,15 @@ Price, USD  : 11.45                 : 555.55              : 1000.00
 Here is a more elaborate example
 
 ```javascript
-t.total(&#x27;Price, USD&#x27;, {
-  printer: Table.aggr.<span class="apidocCodeKeywordSpan">printer</span>(&#x27;Avg: &#x27;, currency),
+t.total('Price, USD', {
+  printer: Table.aggr.<span class="apidocCodeKeywordSpan">printer</span>('Avg: ', currency),
   reduce: Table.aggr.avg,
   init: 0
 })
 
 // or alternatively
 
-t.total(&#x27;Price, USD&#x27;, {
+t.total('Price, USD', {
 ...</pre></li>
     </ul>
 
@@ -736,7 +729,7 @@ t.total(&#x27;Price, USD&#x27;, {
   return function(val, width) {
     var str = string(val)
     var len = length(str)
-    var pad = width &#x3e; len ? Array(width - len + 1).join(ch) : &#x27;&#x27;
+    var pad = width &gt; len ? Array(width - len + 1).join(ch) : ''
     return pad + str
   }
 }</pre></li>
@@ -757,9 +750,9 @@ t.total(&#x27;Price, USD&#x27;, {
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
 data.forEach(function(product) {
-  t.cell(&#x27;Product Id&#x27;, product.id)
-  t.cell(&#x27;Description&#x27;, product.desc)
-  t.cell(&#x27;Price, USD&#x27;, product.price, Table.number(2))
+  t.cell('Product Id', product.id)
+  t.cell('Description', product.desc)
+  t.cell('Price, USD', product.price, Table.number(2))
   t.newRow()
 })
 
@@ -785,10 +778,10 @@ Product Id  Description            Price, USD
     <ul>
     <li>description and source-code<pre class="apidocCodePre">number = function (digits) {
   return function(val, width) {
-    if (val == null) return &#x27;&#x27;
-    if (typeof val != &#x27;number&#x27;)
-      throw new Error(&#x27;&#x27;+val + &#x27; is not a number&#x27;)
-    var str = digits == null ? val+&#x27;&#x27; : val.toFixed(digits)
+    if (val == null) return ''
+    if (typeof val != 'number')
+      throw new Error(''+val + ' is not a number')
+    var str = digits == null ? val+'' : val.toFixed(digits)
     return padLeft(str, width)
   }
 }</pre></li>
@@ -798,9 +791,9 @@ Product Id  Description            Price, USD
 var t = new Table
 
 data.forEach(function(product) {
-  t.cell(&#x27;Product Id&#x27;, product.id)
-  t.cell(&#x27;Description&#x27;, product.desc)
-  t.cell(&#x27;Price, USD&#x27;, product.price, Table.<span class="apidocCodeKeywordSpan">number</span>(2))
+  t.cell('Product Id', product.id)
+  t.cell('Description', product.desc)
+  t.cell('Price, USD', product.price, Table.<span class="apidocCodeKeywordSpan">number</span>(2))
   t.newRow()
 })
 
@@ -823,7 +816,7 @@ The script above will render:
     <li>description and source-code<pre class="apidocCodePre">padLeft = function (val, width) {
   var str = string(val)
   var len = length(str)
-  var pad = width &#x3e; len ? Array(width - len + 1).join(ch) : &#x27;&#x27;
+  var pad = width &gt; len ? Array(width - len + 1).join(ch) : ''
   return pad + str
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
@@ -857,7 +850,7 @@ becomes an overhead. For such cases it is convenient to use `Table.print()`.
     <li>description and source-code<pre class="apidocCodePre">print = function (obj, format, cb) {
   var opts = format || {}
 
-  format = typeof format == &#x27;function&#x27;
+  format = typeof format == 'function'
     ? format
     : function(obj, cell) {
       for(var key in obj) {
@@ -877,7 +870,7 @@ becomes an overhead. For such cases it is convenient to use `Table.print()`.
       t.newRow()
     })
   } else {
-    cb = cb || function(t) { return t.printTransposed({separator: &#x27; : &#x27;}) }
+    cb = cb || function(t) { return t.printTransposed({separator: ' : '}) }
     format(obj, cell)
     t.newRow()
   }
@@ -915,7 +908,7 @@ Price, USD  : 11.45                 : 555.55              : 1000.00
   return function padRight(val, width) {
     var str = string(val)
     var len = length(str)
-    var pad = width &#x3e; len ? Array(width - len + 1).join(ch) : &#x27;&#x27;
+    var pad = width &gt; len ? Array(width - len + 1).join(ch) : ''
     return str + pad
   }
 }</pre></li>
@@ -932,7 +925,7 @@ Price, USD  : 11.45                 : 555.55              : 1000.00
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">function string(val) {
-  return val === undefined ? &#x27;&#x27; : &#x27;&#x27;+val
+  return val === undefined ? '' : ''+val
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
@@ -959,16 +952,16 @@ Price, USD  : 11.45                 : 555.55              : 1000.00
   return this
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
-  { id: 245452, desc: &#x27;Very interesting book&#x27;, price: 11.45},
-  { id: 232323, desc: &#x27;Yet another product&#x27;, price: 555.55 }
+  { id: 245452, desc: 'Very interesting book', price: 11.45},
+  { id: 232323, desc: 'Yet another product', price: 555.55 }
 ]
 
 var t = new Table
 
 data.forEach(function(product) {
-  t.<span class="apidocCodeKeywordSpan">cell</span>(&#x27;Product Id&#x27;, product.id)
-  t.cell(&#x27;Description&#x27;, product.desc)
-  t.cell(&#x27;Price, USD&#x27;, product.price, Table.number(2))
+  t.<span class="apidocCodeKeywordSpan">cell</span>('Product Id', product.id)
+  t.cell('Description', product.desc)
+  t.cell('Price, USD', product.price, Table.number(2))
   t.newRow()
 })
 
@@ -988,7 +981,7 @@ console.log(t.toString())
     <ul>
     <li>description and source-code<pre class="apidocCodePre">columns = function () {
   var cols = {}
-  for(var i = 0; i &#x3c; 2; i++) { // do 2 times
+  for(var i = 0; i &lt; 2; i++) { // do 2 times
     this.rows.forEach(function(row) {
       var idx = 0
       each(row, function(key) {
@@ -1042,9 +1035,9 @@ console.log(t.toString())
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
 data.forEach(function(product) {
-  t.cell(&#x27;Product Id&#x27;, product.id)
-  t.cell(&#x27;Description&#x27;, product.desc)
-  t.cell(&#x27;Price, USD&#x27;, product.price, Table.number(2))
+  t.cell('Product Id', product.id)
+  t.cell('Description', product.desc)
+  t.cell('Price, USD', product.price, Table.number(2))
   t.newRow()
 })
 
@@ -1078,9 +1071,9 @@ Product Id  Description            Price, USD
 var t = new Table
 
 data.forEach(function(product) {
-  t.cell(&#x27;Product Id&#x27;, product.id)
-  t.cell(&#x27;Description&#x27;, product.desc)
-  t.cell(&#x27;Price, USD&#x27;, product.price, Table.number(2))
+  t.cell('Product Id', product.id)
+  t.cell('Description', product.desc)
+  t.cell('Price, USD', product.price, Table.number(2))
   t.<span class="apidocCodeKeywordSpan">newRow</span>()
 })
 
@@ -1104,7 +1097,7 @@ The script above will render:
   var cols = this.columns()
   var separator = this.separator
   var widths = {}
-  var out = &#x27;&#x27;
+  var out = ''
 
   // Calc widths
   this.rows.forEach(function(row) {
@@ -1116,16 +1109,16 @@ The script above will render:
 
   // Now print
   this.rows.forEach(function(row) {
-    var line = &#x27;&#x27;
+    var line = ''
     cols.forEach(function(key) {
       var width = widths[key]
       var str = row.hasOwnProperty(key)
-        ? &#x27;&#x27;+row.__printers[key].call(row, row[key], width)
-        : &#x27;&#x27;
+        ? ''+row.__printers[key].call(row, row[key], width)
+        : ''
       line += padRight(str, width) + separator
     })
     line = line.slice(0, -separator.length)
-    out += line + &#x27;\n&#x27;
+    out += line + '\n'
   })
 
   return out
@@ -1200,7 +1193,7 @@ Price, USD  : 11.45                 : 555.55              : 1000.00
     <li>description and source-code<pre class="apidocCodePre">pushDelimeter = function (cols) {
   cols = cols || this.columns()
   cols.forEach(function(col) {
-    this.cell(col, undefined, leftPadder(&#x27;-&#x27;))
+    this.cell(col, undefined, leftPadder('-'))
   }, this)
   return this.newRow()
 }</pre></li>
@@ -1217,7 +1210,7 @@ Price, USD  : 11.45                 : 555.55              : 1000.00
     </h2>
     <ul>
     <li>description and source-code<pre class="apidocCodePre">sort = function (cmp) {
-  if (typeof cmp == &#x27;function&#x27;) {
+  if (typeof cmp == 'function') {
     this.rows.sort(cmp)
     return this
   }
@@ -1225,21 +1218,21 @@ Price, USD  : 11.45                 : 555.55              : 1000.00
   var keys = Array.isArray(cmp) ? cmp : this.columns()
 
   var comparators = keys.map(function(key) {
-    var order = &#x27;asc&#x27;
+    var order = 'asc'
     var m = /(.*)\|\s*(asc|des)\s*$/.exec(key)
     if (m) {
       key = m[1]
       order = m[2]
     }
     return function (a, b) {
-      return order == &#x27;asc&#x27;
+      return order == 'asc'
         ? compare(a[key], b[key])
         : compare(b[key], a[key])
     }
   })
 
   return this.sort(function(a, b) {
-    for (var i = 0; i &#x3c; comparators.length; i++) {
+    for (var i = 0; i &lt; comparators.length; i++) {
       var order = comparators[i](a, b)
       if (order != 0) return order
     }
@@ -1259,9 +1252,9 @@ column names to sort on (by default uses all columns), or a custom comparator
 function. It is also possible to specify the sort order. For example:
 
 ``` javascript
-t.sort([&#x27;Price, USD|des&#x27;]) // will sort in descending order
-t.sort([&#x27;Price, USD|asc&#x27;]) // will sort in ascending order
-t.sort([&#x27;Price, USD&#x27;]) // sorts in ascending order by default
+t.sort(['Price, USD|des']) // will sort in descending order
+t.sort(['Price, USD|asc']) // will sort in ascending order
+t.sort(['Price, USD']) // sorts in ascending order by default
 ...</pre></li>
     </ul>
 
@@ -1292,7 +1285,7 @@ t.sort([&#x27;Price, USD&#x27;]) // sorts in ascending order by default
   out.rows = out.rows.concat(this.rows)
 
   // Totals
-  if (this.totals &#x26;&#x26; this.rows.length) {
+  if (this.totals &amp;&amp; this.rows.length) {
     out.pushDelimeter(cols)
     this.forEachTotal(out.cell.bind(out))
     out.newRow()
@@ -1302,9 +1295,9 @@ t.sort([&#x27;Price, USD&#x27;]) // sorts in ascending order by default
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
 data.forEach(function(product) {
-  t.cell(&#x27;Product Id&#x27;, product.id)
-  t.cell(&#x27;Description&#x27;, product.desc)
-  t.cell(&#x27;Price, USD&#x27;, product.price, Table.number(2))
+  t.cell('Product Id', product.id)
+  t.cell('Description', product.desc)
+  t.cell('Price, USD', product.price, Table.number(2))
   t.newRow()
 })
 
@@ -1346,7 +1339,7 @@ Product Id  Description            Price, USD
 Easy table can help to calculate and render totals:
 
 ``` javascript
-t.<span class="apidocCodeKeywordSpan">total</span>(&#x27;Price, USD&#x27;)
+t.<span class="apidocCodeKeywordSpan">total</span>('Price, USD')
 ```
 
 ```
@@ -1368,3 +1361,4 @@ Product Id  Description            Price, USD
     ]
 </div>
 </div>
+</body></html>
